@@ -11,6 +11,7 @@ class RunMain:
             print("----->",i)
             data = handle.get_rows_value(url,i+2)
             print(data)
+            print(data)
 
 if __name__=="__main__":
     run = RunMain()
