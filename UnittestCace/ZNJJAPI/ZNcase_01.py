@@ -37,7 +37,7 @@ class Znjj(unittest.TestCase):
     def test_2_excel(self):
         url = "E:/UnittestCaseDemo/UnittestCace/ZNJJAPI/Util/Excle_case/case_01.xlsx"
         print(handle.get_cell_value(url, 2, 3))
-        print(handle.get_rows_value(url,2)[1])
+        print(handle.get_rows_value(url,2))
 
 
 if __name__ == "__main__":
