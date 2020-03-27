@@ -1,0 +1,15 @@
+Index: UnittestCace/ZNJJAPI/Run/run_main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- UnittestCace/ZNJJAPI/Run/run_main.py	(date 1585292939000)
++++ UnittestCace/ZNJJAPI/Run/run_main.py	(date 1585293006998)
+@@ -11,6 +11,7 @@
+             print("----->",i)
+             data = handle.get_rows_value(url,i+2)
+             print(data)
++            print(data)
+ 
+ if __name__=="__main__":
+     run = RunMain()
