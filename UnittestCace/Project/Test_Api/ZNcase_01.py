@@ -11,23 +11,22 @@ base_path = os.getcwd()
 class Znjj(unittest.TestCase):
     def setUp(self):
         print('测试开始')
-        self.url = "/user/login"
+        self.url = "E:/UnittestCaseDemo/UnittestCace/ENTITY/Util/Excle_case/case_01.xlsx"
 
     def tearDown(self):
         print('测试结束')
 
     def test_1_login(self):
-        json1 = {
-            "userAccount": "8002",
-            "userPassword": "e10adc3949ba59abbe56e057f20f883e"
-        }
-
-        headers = {
-            "Content-Type": "application/json"
-        }
-        log_url = self.url
-        res = request.run_main('post', log_url, headers, json1)
-
+        rows = handle.get_rows(self.url)
+        for i in range(rows):
+            data = handle.get_rows_value(self.url, i + 2)
+            is_run = data[2]
+            if is_run == 'yes':
+                method = data[6]
+                log_url = data[5]
+                json1 = eval(data[7])
+                headers = eval(data[9])
+        res = request.run_main(method, log_url, headers, json1)
         global json_res
         json_res = res
         print(json.dumps(json_res, indent=2, ensure_ascii=False))

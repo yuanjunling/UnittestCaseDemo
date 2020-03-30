@@ -1,5 +1,5 @@
 # coding=utf-8
-
+import json
 from UnittestCace.public.base_request import request
 from UnittestCace.public.handle_excle import handle
 
@@ -18,8 +18,11 @@ class RunMain:
                 json1 =eval(data[7])
                 headers = eval(data[9])
                 res=request.run_main(method, log_url, headers, json1)
-                print(res)
+                json_res = res
+        print(json.dumps(json_res, indent=2, ensure_ascii=False))
 
+
+run_case=RunMain()
 if __name__=="__main__":
     run = RunMain()
     run.run_case()
