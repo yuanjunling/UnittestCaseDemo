@@ -25,7 +25,6 @@ class Znjj(unittest.TestCase):
         headers = {
             "Content-Type": "application/json"
         }
-
         log_url = self.url
         res = request.run_main('post', log_url, headers, json1)
 
@@ -35,7 +34,7 @@ class Znjj(unittest.TestCase):
         self.assertEqual(json_res["description"], " 登陆成功", msg="登陆失败")
 
     def test_2_excel(self):
-        url = "E:/UnittestCaseDemo/UnittestCace/ZNJJAPI/Util/Excle_case/case_01.xlsx"
+        url = "E:/UnittestCaseDemo/UnittestCace/ENTITY/Util/Excle_case/case_01.xlsx"
         print(handle.get_cell_value(url, 2, 3))
         print(handle.get_rows_value(url,2))
 

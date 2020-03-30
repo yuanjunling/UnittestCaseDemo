@@ -7,7 +7,7 @@ from UnittestCace.public.handle_excle import handle
 class RunMain:
     def run_case(self):
         #获取mock全部数据
-        url = "E:/UnittestCaseDemo/UnittestCace/ZNJJAPI/Util/Excle_case/case_01.xlsx"
+        url = "E:/UnittestCaseDemo/UnittestCace/ENTITY/Util/Excle_case/case_01.xlsx"
         rows = handle.get_rows(url)
         for i in range(rows):
             data = handle.get_rows_value(url, i + 2)
