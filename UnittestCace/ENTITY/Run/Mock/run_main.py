@@ -2,12 +2,14 @@
 import json
 from UnittestCace.public.base_request import request
 from UnittestCace.public.handle_excle import handle
+from UnittestCace.public.handle_init import handle_ini
 
 
 class RunMain:
     def run_case(self):
         #获取mock全部数据
-        url = "E:/UnittestCaseDemo/UnittestCace/ENTITY/Util/Excle_case/case_01.xlsx"
+        rootpath = handle_ini.get_value('rootpath')
+        url = rootpath+"/Util/Excle_case/case_01.xlsx"
         rows = handle.get_rows(url)
         for i in range(rows):
             data = handle.get_rows_value(url, i + 2)
@@ -19,7 +21,8 @@ class RunMain:
                 headers = eval(data[9])
                 res=request.run_main(method, log_url, headers, json1)
                 json_res = res
-        print(json.dumps(json_res, indent=2, ensure_ascii=False))
+                json.dumps(json_res, indent=2, ensure_ascii=False)
+        return json_res
 
 
 run_case=RunMain()
