@@ -3,8 +3,8 @@
 import unittest
 import HTMLTestRunner_PY3
 import time
-from UnittestCace.ZNJJAPI import ZNcase_01
 
+from UnittestCace.Project.Test_Api import ZNcase_01
 
 suite = unittest.TestSuite()
 suite.addTest(unittest.makeSuite(ZNcase_01.Znjj))

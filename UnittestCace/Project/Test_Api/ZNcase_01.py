@@ -2,9 +2,8 @@
 import unittest
 import json
 import os
-
-from UnittestCace.ZNJJAPI.Util.handle_excle import handle
-from UnittestCace.ZNJJAPI.base_request import request
+from UnittestCace.public.base_request import request
+from UnittestCace.public.handle_excle import handle
 
 base_path = os.getcwd()
 
@@ -12,21 +11,22 @@ base_path = os.getcwd()
 class Znjj(unittest.TestCase):
     def setUp(self):
         print('测试开始')
-        self.url = "http://192.168.60.55:6789"
+        self.url = "/user/login"
 
     def tearDown(self):
         print('测试结束')
 
     def test_1_login(self):
         json1 = {
-            "userAccount": "8001",
+            "userAccount": "8002",
             "userPassword": "e10adc3949ba59abbe56e057f20f883e"
         }
 
         headers = {
             "Content-Type": "application/json"
         }
-        log_url = self.url + "/user/login"
+
+        log_url = self.url
         res = request.run_main('post', log_url, headers, json1)
 
         global json_res

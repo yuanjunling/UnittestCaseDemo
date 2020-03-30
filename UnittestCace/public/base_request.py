@@ -1,6 +1,7 @@
 # coding=utf-8
 import requests
-import json
+
+from UnittestCace.public.handle_init import handle_ini
 
 
 class BaseRequest:
@@ -13,6 +14,9 @@ class BaseRequest:
         return res
 
     def run_main(self, method, url, headers, json):
+        base_url = handle_ini.get_value('host')
+        if 'http' not in url:
+            url = base_url+url
         if method == 'get':
             res = self.send_get(url,headers,json=None )
         else:
