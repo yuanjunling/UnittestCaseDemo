@@ -30,7 +30,7 @@ class Znjj(unittest.TestCase):
                 log_url = data[5]
                 json1 = eval(data[7])
                 headers = eval(data[9])#字符串转化字典类型
-                res = request.run_main(method, log_url,  , json1)
+                res = request.run_main(method, log_url,json1)
                 global json_res
                 json_res = res
                 print(json.dumps(json_res, indent=2, ensure_ascii=False))
