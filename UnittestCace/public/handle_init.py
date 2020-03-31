@@ -3,7 +3,7 @@ import configparser
 
 class HandleInit:
     def load_ini(self):
-        file_path = "E:/py_Api/UnittestCace/ENTITY/Config/server.ini"
+        file_path = "E:/UnittestCaseDemo/UnittestCace/ENTITY/Config/server.ini"
         cf = configparser.ConfigParser()
         cf.read(file_path,encoding="utf-8-sig")
         return cf

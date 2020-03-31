@@ -2,7 +2,7 @@
 import requests
 import json
 import hashlib
-imooc = "imooc.com"
+imooc = "123456"
 md5 = hashlib.md5()
 md5.update(imooc.encode('utf-8'))
 res = md5.hexdigest()

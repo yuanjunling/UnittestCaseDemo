@@ -1,9 +1,6 @@
 #coding=utf-8
 import openpyxl
-import sys
-import os
-base_path = os.getcwd()
-sys.path.append(base_path)
+
 
 
 class HandExcel:
@@ -33,5 +30,6 @@ class HandExcel:
         for i in self.get_sheet_data(url,index)[row]:
             row_list.append(i.value)
         return row_list
+        # 调用此方法的时候，excel不要处于打开状态
 handle=HandExcel()
 

@@ -9,6 +9,7 @@
     <option name="requirementsPath" value="" />
   </component>
   <component name="ReSTService">
+    <option name="workdir" value="E:\py_Api" />
     <option name="DOC_DIR" value="E:\py_Api" />
   </component>
 </module>

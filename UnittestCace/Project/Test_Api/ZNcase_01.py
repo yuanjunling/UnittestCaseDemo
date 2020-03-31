@@ -1,17 +1,20 @@
 # coding=utf-8
 import unittest
-import json
+import hashlib
+import json,random
 
+from UnittestCace.public.GenPass import GenPass
 from UnittestCace.public.base_request import request
 from UnittestCace.public.handle_excle import handle
 from UnittestCace.public.handle_init import handle_ini
-
-
+from openpyxl import load_workbook
 class Znjj(unittest.TestCase):
     def setUp(self):
         print('测试开始')
         rootpath = handle_ini.get_value('rootpath')
         self.url = rootpath+"/Util/Excle_case/case_01.xlsx"
+        register = handle_ini.get_value('host')
+        self.register_url = register + "/user/register"
 
     def tearDown(self):
         print('测试结束')
@@ -33,10 +36,27 @@ class Znjj(unittest.TestCase):
                 self.assertEqual(json_res["description"], " 登陆成功", msg="登陆失败")
 
     def test_2_excel(self):
-        url = "E:/py_Api/UnittestCace/ENTITY/Util/Excle_case/case_01.xlsx"
-        print(handle.get_cell_value(url, 2, 3))
-        print(handle.get_rows_value(url,2))
-
+        user = random.randint(6,999999)
+        play = GenPass()
+        Password_md5 = play
+        md5 = hashlib.md5()
+        md5.update(Password_md5.encode("utf-8"))
+        Password = md5.hexdigest()
+        json1 = {
+             "userAccount":user,
+             "userPassword":Password
+        }
+        headers = {
+            "Content-Type":"application/json"
+        }
+        res = request.run_main('post',self.register_url,headers,json1)
+        json_res = res
+        register=json_res["description"]
+        print(json.dumps(json_res, indent=2, ensure_ascii=False))
+        workbook1 = load_workbook(self.url)
+        sheet = workbook1['Mysheet']
+        sheet.append([user,Password,register])
+        workbook1.save(self.url)
 
 if __name__ == "__main__":
     unittest.main()
