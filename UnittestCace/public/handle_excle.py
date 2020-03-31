@@ -1,6 +1,6 @@
 #coding=utf-8
 import openpyxl
-
+from openpyxl import load_workbook
 
 
 class HandExcel:
@@ -30,6 +30,14 @@ class HandExcel:
         for i in self.get_sheet_data(url,index)[row]:
             row_list.append(i.value)
         return row_list
-        # 调用此方法的时候，excel不要处于打开状态
+        # 调用此方法的时候，写入一行数据到excel
+    def write_cell_content(self,url,array,sheet=None):
+        workbook1 = load_workbook(url)
+        if sheet==None:
+            sheet='Mysheet'
+        sheet = workbook1[sheet]
+        sheet.append(array)
+        workbook1.save(url)
+        return sheet.append(array)
 handle=HandExcel()
 

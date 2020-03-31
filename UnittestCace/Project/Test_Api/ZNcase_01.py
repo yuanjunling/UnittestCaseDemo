@@ -52,11 +52,16 @@ class Znjj(unittest.TestCase):
         res = request.run_main('post',self.register_url,headers,json1)
         json_res = res
         register=json_res["description"]
+        if register==" 注册成功":
+            register = json_res["description"]
+        else:
+            register="注册失败"
         print(json.dumps(json_res, indent=2, ensure_ascii=False))
-        workbook1 = load_workbook(self.url)
-        sheet = workbook1['Mysheet']
-        sheet.append([user,Password,register])
-        workbook1.save(self.url)
-
+        # workbook1 = load_workbook(self.url)
+        # sheet = workbook1['Mysheet']
+        # sheet.append([user,Password,register])
+        # workbook1.save(self.url)
+        array = [user,Password,register]
+        handle.write_cell_content(self.url,array)
 if __name__ == "__main__":
     unittest.main()
