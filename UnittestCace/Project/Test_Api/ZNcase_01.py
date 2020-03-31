@@ -1,13 +1,14 @@
 # coding=utf-8
 import unittest
-import hashlib
 import json,random
 
 from UnittestCace.public.GenPass import GenPass
 from UnittestCace.public.base_request import request
 from UnittestCace.public.handle_excle import handle
 from UnittestCace.public.handle_init import handle_ini
-from openpyxl import load_workbook
+from UnittestCace.public.hashlib_md5 import MD5_ha
+
+
 class Znjj(unittest.TestCase):
     def setUp(self):
         print('测试开始')
@@ -29,7 +30,7 @@ class Znjj(unittest.TestCase):
                 log_url = data[5]
                 json1 = eval(data[7])
                 headers = eval(data[9])#字符串转化字典类型
-                res = request.run_main(method, log_url, headers, json1)
+                res = request.run_main(method, log_url,  , json1)
                 global json_res
                 json_res = res
                 print(json.dumps(json_res, indent=2, ensure_ascii=False))
@@ -38,13 +39,10 @@ class Znjj(unittest.TestCase):
     def test_2_excel(self):
         user = random.randint(6,999999)
         play = GenPass()
-        Password_md5 = play
-        md5 = hashlib.md5()
-        md5.update(Password_md5.encode("utf-8"))
-        Password = md5.hexdigest()
+        data_md5=MD5_ha.Hashlib_md5(play)
         json1 = {
              "userAccount":user,
-             "userPassword":Password
+             "userPassword":data_md5
         }
         headers = {
             "Content-Type":"application/json"
@@ -57,11 +55,7 @@ class Znjj(unittest.TestCase):
         else:
             register="注册失败"
         print(json.dumps(json_res, indent=2, ensure_ascii=False))
-        # workbook1 = load_workbook(self.url)
-        # sheet = workbook1['Mysheet']
-        # sheet.append([user,Password,register])
-        # workbook1.save(self.url)
-        array = [user,Password,register]
+        array = [user,data_md5,register]
         handle.write_cell_content(self.url,array)
 if __name__ == "__main__":
     unittest.main()

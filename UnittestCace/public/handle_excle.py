@@ -30,7 +30,7 @@ class HandExcel:
         for i in self.get_sheet_data(url,index)[row]:
             row_list.append(i.value)
         return row_list
-        # 调用此方法的时候，写入一行数据到excel
+        # 调用此方法的时候，写入一行数据到excel最后一行
     def write_cell_content(self,url,array,sheet=None):
         workbook1 = load_workbook(url)
         if sheet==None:
