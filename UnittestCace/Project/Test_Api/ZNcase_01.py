@@ -1,7 +1,6 @@
 # coding=utf-8
 import unittest
 import json, random
-
 from UnittestCace.public.GenPass import GenPass
 from UnittestCace.public.base_request import request
 from UnittestCace.public.handle_excle import handle
