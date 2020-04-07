@@ -1,0 +1,162 @@
+//元素节点：数字1
+        //文本节点：3
+        //注释节点代表8
+        //childNodes 获取某个节点下的所有子节点 类数组
+        //获取属性节点attributes 属性节点代表数字2
+        //chidren:找到所有元素下子节点
+
+实例：
+ var div = document.getElementById('div1')
+        console.log(div.childNodes[1].nodeType)
+        console.log(div.attributes[0].nodeValue)
+
+//parentNode 查找某个元素下的父节点
+       //parentNode 查找某个元素下的父节点
+        //nextElementSibling 查找下一个兄弟节点
+        //previousElementSibling查找上一个兄弟节点
+        //firstElementChild 查找第一个元素下的节点
+        //lastElementChild 查找最后一个元素下的节点
+        var ul = document.getElementById('ul');
+        var alis = ul.children;
+        alis[0].nextElementSibling.style.background = 'red'
+        console.log(alis[1].previousElementSibling)
+
+display=‘none’ //隐藏
+
+//获取元素行间的属性
+	//elem.getAttribute('key')
+	
+	
+	//设置元素的行间属性
+	//elem.setAttribute('key','value')
+	
+	
+	//删除元素的行间属性
+	//elem.removeAttribute('key')
+
+elem.clientWidth/ elem.clientHeight (获取某个元素的宽高)
+		注意：
+			不计算边框
+			加上padding
+			
+		
+elem.offsetWidth / elem.offsetHeight  (获取某个元素的宽高)
+		注意：
+			计算边框
+			加上padding
+
+
+/*
+		可视区的宽高：
+			document.documentElement.clientWidth/document.documentElement.clientHeight
+			
+	*/
+
+var div = document.getElementById('div1');
+	var clientW = document.documentElement.clientWidth;
+	var clientH = document.documentElement.clientHeight;
+	var iW = div.offsetWidth;
+	var iH = div.offsetHeight;
+	
+	div.style.left = (clientW - iW)/2 + 'px';
+	div.style.top = (clientH - iH)/2 + 'px';
+
+/*
+
+		document.createElement('标签的名字');  //创建元素
+		
+		插入元素：（向父级末尾添加一个元素）
+			parentNode.appendChild(childNode)
+
+	btn.onclick = function(){
+		num++;
+		var li = document.createElement('li');//创建元素
+		
+		li.innerHTML = num;
+		
+		ul.appendChild(li);
+		
+	}
+		
+		
+	*/
+
+btn.onclick = function(){
+		num++;
+		var li = document.createElement('li');//创建元素
+		
+		li.innerHTML = num;
+		
+		ul.insertBefore(li,ul.children[0]);//将ul的第一个子节点前插入元素
+
+
+/*
+		document.createElement('标签的名字');  //创建元素
+		
+		插入元素：（向父级末尾添加一个元素）
+			parentNode.appendChild(childNode)
+		
+			
+		插入元素：（向父级中的某个元素前插入元素）
+		parentNode.insertBefore(新添加的元素,已有的元素)
+			
+			特性：
+				如果第二个参数为假的，那么会将某个元素添加到父元素的末位。
+		
+	*/
+
+/*
+		删除节点:
+			父级.removeChild(指定的子节点)
+			
+		注意：
+			如果指定的子节点没有，那么会报错。（进行判断解决）
+	*/
+		btn.onclick = function(){
+		if(ul.lastElementChild){
+			ul.removeChild(ul.lastElementChild)
+		}
+	}
+
+/*
+		需求：
+			当点击按钮的时候，将红色方块替换成蓝色的方块
+			
+		父级.replaceChild(要替换成什么,谁被替换)	
+	*/
+	
+	btn.onclick = function(){
+		box.replaceChild(div2,div1);
+	}
+
+
+/*
+		需求：
+			当点击按钮的时候，将蓝色方块克隆一份出来放到红色方块下
+			
+			元素.cloneNode()  //克隆某个元素
+		
+		注意：
+			在克隆的时候，默认（false）只克隆指定元素本身，不会克隆该元素下的所有子节点。（cloneNode(有参数，默认为false)），如果里面传入true，那么就可以克隆该元素下的所有子节点。
+			
+			事件是不会被克隆的。
+			
+			
+		
+		注意：
+			appendChild/insertBefore/replaceChild在操作一个已有的元素时，	是将已有的元素移动，而不是复制一份进行操作。
+		
+		
+	*/
+	
+	div2.onclick = function(){
+		alert(1);
+	}
+	
+	btn.onclick = function(){
+		var cElemnt = div2.cloneNode(true);
+		
+		box.insertBefore(cElemnt,hr)
+		
+		//console.log(cElemnt)
+	}

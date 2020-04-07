@@ -1,0 +1,28 @@
+django-admin startproject 项目名称 //创建一个django项目
+
+python manage.py startapp 应用名称 //项目中创建一个应用
+
+python manage.py shell  //进入调试代码的调试模式
+
+python manage.py makemigrations //数据创建更改文件
+
+python manage.py migrate //同步到数据库进行更新
+
+python manage.py flush //清空数据库
+
+python manage.py runserver 启动服务器
+
+python manage.py+回车 //查看更多命令
+
+PYTHONIOENCODING=UTF-8 //运行中文环境
+
+
+Model数据库
+user.save()//保存
+from app.models import User
+vars() 字典格式
+查询：user = User.objects.get(id =1)
+新增：user = User（key=value）
+删除：user = User delete()
+
+user_profile = Userprofile.objects.create(user=user,birthday='1989-09-03')

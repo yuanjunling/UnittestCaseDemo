@@ -1,0 +1,82 @@
+a标签/是span标签
+
+a标签 超链接
+
+伪类 给元素添加特殊的效果
+link 未访问过的链接初始颜色
+visited 访问过后的链接颜色
+hover 鼠标移入（悬停）
+active 鼠标按下时链接的颜色
+顺序 l v h a
+格式如下
+a:xxx{
+  color:black;		
+}
+
+<header> 主要用于页面的头部的信息介绍，也可用于板块头部 </header>
+<footer>页脚 页面的底部 或者 板块底部</footer>
+<nav>
+  <a></a>
+</nav> 导航标签 （包含链接的一个列表）
+<section>页面上的板块 用于划分页面上的不同区域或者划分文章里的不同节</section>
+<article> 用来在页面中表示一套结构完整且独立的内容部分</article>
+<aside>元素标签可以包含与当前页面或主要内容相关的引用，侧边栏，广告，nav元素组，以及其他类似的有别与主要内容的部分</aside>
+<time>用于体现时间</time>
+<p>标签 段落
+<em>强调斜体
+<strong> 强调
+<ui>无序的列表 他的下一级只能是<li>
+<ol>有序的列表 下一级也是<li>
+<dl>
+        <dt>dl-自定义列表：dt-自定义列表title</dt>
+        <dd>自定义列表的列表项</dd>
+    </dl>
+css reset 原则：
+但凡是浏览默认的样式，都不要使用
+因为每个浏览器下的标签默认样式可能会出现不一致
+与盒模型相关的样式
+标签特有的样式
+ul>li
+ol>li
+
+id选择器，类选择器，标签选择器，群组选择器
+标签id 
+
+表格 table
+table 表格
+thead表格头
+tbody表格主体
+tr表格行
+th元素定义表头
+td元素定义表格单元
+border-collapse: collapse; 合并单元格间隙
+th,td{
+            padding: 0;
+        }
+重置单元格默认填充
+<th colspan="2"> 合并行几个单元格就写几个数字
+
+<td rowspan = "2"合并列单元格
+
+from表单
+text 文本框
+password 密码
+radio 单选 （如果需要产生互斥效果name需一致）checked 默认选中
+checkbox 复选框
+submit 提交
+reset 重置
+button	按钮
+image图片
+file 上传
+hidden 隐藏
+<label></label>标签提示
+disabled = “disabled ” 禁用属性
+
+下拉框<select name="cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+            </select>
+
+<textarea></textarea>文本域
