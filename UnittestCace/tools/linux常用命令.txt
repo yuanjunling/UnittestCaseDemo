@@ -35,3 +35,9 @@ in 创建硬链接 -s创建软连接
     adduser 命令：添加新用户
     passwd 命令：修改密码
     deluser：删除用户
+    addgroup：创建群组
+    usermod 命令：修改用户账户
+        -l：对用户重命名，但是 /home 目录中的用户家目录名不会改变，需要手动修改；
+        -g：修改用户所在群组。此用户的家目录里的所有文件的所在群组会相应改变。 例：usermod -g friends thomas
+        -G：一次性将一个用户添加到多个群组 //usermod -G friends,happy,funny thomas 以上命令把 thomas 添加到 friends、happy 和 funny 三个群组。记得群组名之间要用逗号分隔，而且没有空格
+
