@@ -1,9 +1,9 @@
-a = 100
-if a == 60:
-    print("及格")
-elif a >= 75 or a <= 85:
-    print("良好")
-elif a >= 100:
-    print("优秀")
+import random
+Num1 = random.randint(0,10)
+Num2 = random.randint(0,10)
+if Num1 > Num2:
+     print('1赢了')
+elif Num1 == Num2:
+     print('平局')
 else:
-    print("不及格")
+     print('2赢了')
