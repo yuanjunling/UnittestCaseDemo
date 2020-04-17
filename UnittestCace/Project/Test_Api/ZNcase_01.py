@@ -55,7 +55,7 @@ class Znjj(unittest.TestCase):
         if register == " 注册成功":
             register = json_res["description"]
         else:
-            register = "注册失败"
+            register = "注册失败,请重新注册"
         print(json.dumps(json_res, indent=2, ensure_ascii=False))
         array = [user, pwd, register]
         handle.write_cell_content(self.url, array)
