@@ -17,6 +17,9 @@ class Znjj(unittest.TestCase):
         register = handle_ini.get_value('host')
         self.register_url = register + "/user/register"
         self.login = register + "/user/login"
+    @classmethod
+    def setUpClass(cls):
+        globals()["token"]=None
 
     def tearDown(self):
         print('测试结束')
@@ -32,7 +35,6 @@ class Znjj(unittest.TestCase):
                 json1 = eval(data[7])
                 headers = eval(data[9])  # 字符串转化字典类型
                 res = request.run_main(method, log_url, headers, json1)
-                global json_res
                 json_res = res
                 print(json.dumps(json_res, indent=2, ensure_ascii=False))
                 self.assertEqual(json_res["description"], " 登陆成功", msg="登陆失败")
@@ -77,8 +79,12 @@ class Znjj(unittest.TestCase):
                 }
                 res = request.run_main('post', self.login, headers, json1)
                 json_res = res
+                globals()["token"]=json_res["data"]["token"]
+                print(globals()["token"])
                 print(json.dumps(json_res, indent=2, ensure_ascii=False))
                 self.assertEqual(json_res["description"], " 登陆成功", msg="登陆失败")
+    def test_4_deom(self):
+        print(globals()["token"])
 
 if __name__ == "__main__":
     unittest.main()
