@@ -1,11 +1,11 @@
 # coding=utf-8
+import json
+import random
 import unittest
-import json, random
-from UnittestCace.public.GenPass import GenPass
 from UnittestCace.public.base_request import request
+from UnittestCace.public.GenPass import GenPass
 from UnittestCace.public.handle_excle import handle
 from UnittestCace.public.handle_init import handle_ini
-
 from UnittestCace.public.hashlib_md5 import md5_hb
 
 
@@ -86,5 +86,8 @@ class Znjj(unittest.TestCase):
     def test_4_deom(self):
         print(globals()["token"])
 
+
+
 if __name__ == "__main__":
     unittest.main()
+
