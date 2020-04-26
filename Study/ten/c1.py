@@ -1,6 +1,6 @@
 import re
 
-a = 'C|C++|Java|C#|Python|Javascript'
+a = 'C0C++1Java2C#3Python4Javascript'
 
 r = re.findall('Python',a)
 if len(r) > 0:

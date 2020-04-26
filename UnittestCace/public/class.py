@@ -22,6 +22,6 @@ class Student:
 
     @staticmethod #静态方法
     def add(x,y):
-
         print("this is a static method")
 
+Student.plus_sum()
