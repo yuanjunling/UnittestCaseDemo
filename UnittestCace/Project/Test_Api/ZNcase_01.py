@@ -84,7 +84,8 @@ class Znjj(unittest.TestCase):
                 print(json.dumps(json_res, indent=2, ensure_ascii=False))
                 self.assertEqual(json_res["description"], " 登陆成功", msg="登陆失败")
     def test_4_deom(self):
-        print(globals()["token"])
+        token=globals()["token"]
+        print(token)
 
 
 
