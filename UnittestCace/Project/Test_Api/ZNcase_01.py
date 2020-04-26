@@ -2,6 +2,7 @@
 import json
 import random
 import unittest
+import requests
 from UnittestCace.public.base_request import request
 from UnittestCace.public.GenPass import GenPass
 from UnittestCace.public.handle_excle import handle
@@ -15,8 +16,9 @@ class Znjj(unittest.TestCase):
         rootpath = handle_ini.get_value('rootpath')
         self.url = rootpath + "/Util/Excle_case/case_01.xlsx"
         register = handle_ini.get_value('host')
-        self.register_url = register + "/user/register"
-        self.login = register + "/user/login"
+        self.register_url =  "/user/register"
+        self.login =  "/user/login"
+        self.addFamily = "/family/addFamily"
     @classmethod
     def setUpClass(cls):
         globals()["token"]=None
@@ -34,7 +36,7 @@ class Znjj(unittest.TestCase):
                 log_url = data[5]
                 json1 = eval(data[7])
                 headers = eval(data[9])  # 字符串转化字典类型
-                res = request.run_main(method, log_url, headers, json1)
+                res = request.run_main(method, url=log_url, headers=headers, json=json1)
                 json_res = res
                 print(json.dumps(json_res, indent=2, ensure_ascii=False))
                 self.assertEqual(json_res["description"], " 登陆成功", msg="登陆失败")
@@ -51,7 +53,7 @@ class Znjj(unittest.TestCase):
         headers = {
             "Content-Type": "application/json"
         }
-        res = request.run_main('post', self.register_url, headers, json1)
+        res = request.run_main('post', url=self.register_url, headers=headers, json=json1)
         json_res = res
         register = json_res["description"]
         if register == " 注册成功":
@@ -61,7 +63,8 @@ class Znjj(unittest.TestCase):
         print(json.dumps(json_res, indent=2, ensure_ascii=False))
         array = [user, pwd, register]
         handle.write_cell_content(self.url, array)
-
+        print("账号: "+ str(user))
+        print("密码：" + str(pwd))
     def test_3_login(self):
         headers = {
             "Content-Type": "application/json"
@@ -77,17 +80,25 @@ class Znjj(unittest.TestCase):
                     "userAccount": userAccount,
                     "userPassword": userPassword
                 }
-                res = request.run_main('post', self.login, headers, json1)
+                res = request.run_main('post', url=self.login, headers=headers, json=json1)
                 json_res = res
                 globals()["token"]=json_res["data"]["token"]
                 print(globals()["token"])
                 print(json.dumps(json_res, indent=2, ensure_ascii=False))
                 self.assertEqual(json_res["description"], " 登陆成功", msg="登陆失败")
-    def test_4_deom(self):
-        print(globals()["token"])
 
+    def test_4_addFamily(self):
 
+        headers = {
+            "token":globals()["token"]
+        }
+        data = {
+            'familyName':'1号家庭',
+            'familyDescribe':'1号家庭不错哦'
+        }
 
+        res = request.run_main('post', url=self.addFamily, data=data, headers=headers)
+        print(res)
 if __name__ == "__main__":
     unittest.main()
 
