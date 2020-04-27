@@ -1,6 +1,5 @@
 # coding=utf-8
 import requests
-import json
 from UnittestCace.public.handle_init import handle_ini
 
 
@@ -36,12 +35,11 @@ class BaseRequest:
             print(url)
         if method == 'get':
             res = self.send_get(url,**kwargs)
-            return res
-        elif method=='post':
-            res = self.send_post(url,**kwargs)
-            return res
+
         else:
-            print("接口请求错误")
+            res = self.send_post(url,**kwargs)
+        return res
+
 
 
 
@@ -56,5 +54,5 @@ if __name__ == '__main__':
     headers = {
         "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsiMDkwMyIsIjE1ODc2OTExNTM5NjEiXX0.hq9oWYxmBoDZH3dKuWC5ZLNNCpkQuk--ZzpqqEP2XvA"
     }
-    res = request.run_main('post',url=url,data=json1,headers=headers)
+    res = request.run_main('post',url,data=json1,headers=headers)
     print(res)

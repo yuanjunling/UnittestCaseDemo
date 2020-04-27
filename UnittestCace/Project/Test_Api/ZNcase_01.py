@@ -2,7 +2,7 @@
 import json
 import random
 import unittest
-import requests
+import string
 from UnittestCace.public.base_request import request
 from UnittestCace.public.GenPass import GenPass
 from UnittestCace.public.handle_excle import handle
@@ -15,7 +15,6 @@ class Znjj(unittest.TestCase):
         print('测试开始')
         rootpath = handle_ini.get_value('rootpath')
         self.url = rootpath + "/Util/Excle_case/case_01.xlsx"
-        register = handle_ini.get_value('host')
         self.register_url =  "/user/register"
         self.login =  "/user/login"
         self.addFamily = "/family/addFamily"
@@ -41,7 +40,7 @@ class Znjj(unittest.TestCase):
                 print(json.dumps(json_res, indent=2, ensure_ascii=False))
                 self.assertEqual(json_res["description"], " 登陆成功", msg="登陆失败")
 
-    def test_2_excel(self):
+    def test_2_register(self):
         global user
         user = random.randint(6, 999999)
         play = GenPass()
@@ -83,22 +82,25 @@ class Znjj(unittest.TestCase):
                 res = request.run_main('post', url=self.login, headers=headers, json=json1)
                 json_res = res
                 globals()["token"]=json_res["data"]["token"]
-                print(globals()["token"])
                 print(json.dumps(json_res, indent=2, ensure_ascii=False))
                 self.assertEqual(json_res["description"], " 登陆成功", msg="登陆失败")
 
     def test_4_addFamily(self):
-
+        val = ''.join(random.sample(string.ascii_letters + string.digits, 60))
         headers = {
             "token":globals()["token"]
         }
         data = {
-            'familyName':'1号家庭',
-            'familyDescribe':'1号家庭不错哦'
+            'familyName':'{}号家庭'.format(random.randint(6, 999999)),
+            'familyDescribe':val,
+            'file':'//img.mukewang.com/5de711c50951202612000676.jpg'
         }
-
+        print("备注："+val)
         res = request.run_main('post', url=self.addFamily, data=data, headers=headers)
-        print(res)
+        json_res = res
+        print(json.dumps(json_res, indent=2, ensure_ascii=False))
+        self.assertEqual(json_res["description"], " 操作成功", msg="操作失败")
+
 if __name__ == "__main__":
     unittest.main()
 
