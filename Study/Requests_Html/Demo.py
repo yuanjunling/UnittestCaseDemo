@@ -1,7 +1,12 @@
+import datetime
+import threading
+
 from requests_html import HTMLSession
-import re
+import time
 class Demo:
-    url = "https://www.biduo.cc/biquge/53_53723/"
+    url = "https://www.biduo.cc/biquge/35_35532/"
+    url1 = "https://www.97ub.cc/175_175047/"
+
     def fiction(self):
         ''' 建立Session：'''
         session = HTMLSession()
@@ -35,18 +40,40 @@ class Demo:
         return anchors
 
     def __sort_seed(self,anchor):
-        return anchor['title']
+        for rank in range(0, len(anchor)):
+            str(rank+1)
+        return str(rank+1)
 
     def __show(self,anchors):
-        for anchor in anchors:
-            print(anchor['title'] + '--------' + str(anchor['links']))
+        '''数据显示'''
+        for rank in range(0,len(anchors)):
+            print('rank'+str(rank+1)
+             + ":  " + anchors[rank]['title']
+             +'      '+str(anchors[rank]['links'])
+                  )
+        set = anchors[rank]['links']
+        lists = list(set)[0]
+        session = HTMLSession()
+        r = session.get(lists)
+        newss = r.html.find("div.bookname h1")
+        news = r.html.find("div#content")
+        for texts in news:
+            for title in newss:
+                print('\n')
+                print('-------------------'+title.text+'-------------------------')
+            print(texts.text)
     def go(self):
         htmls = self.fiction()
         anchors=self.analysis(htmls)
         anchors=list(self.__refine(anchors))
-        # for a in anchors:
-        #     print(a)
         anchors = self.__sort(anchors)
         self.__show(anchors)
-demo = Demo()
-demo.go()
+        print(str(datetime.datetime.now())+"-----------------------------------------------------------------")
+        time.sleep(3600)
+        timer = threading.Timer(0,Demo.go(self))#定时更新
+        timer.start()
+if __name__ == '__main__':
+    demo = Demo()
+    demo.go()
+
+
