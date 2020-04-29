@@ -1,7 +1,13 @@
+# coding=utf-8
+import datetime
+import threading
+
 from requests_html import HTMLSession
-import re
+import time
 class Demo:
     url = "https://www.biduo.cc/biquge/53_53723/"
+    url1 = "https://www.97ub.cc/175_175047/"
+
     def fiction(self):
         ''' 建立Session：'''
         session = HTMLSession()
@@ -35,18 +41,53 @@ class Demo:
         return anchors
 
     def __sort_seed(self,anchor):
-        return anchor['title']
+        for rank in range(0, len(anchor)):
+            str(rank+1)
+        return str(rank+1)
 
     def __show(self,anchors):
-        for anchor in anchors:
-            print(anchor['title'] + '--------' + str(anchor['links']))
+        '''数据显示'''
+        for rank in range(0,len(anchors)):
+            print('rank'+str(rank+1)
+             + ":  " + anchors[rank]['title']
+             +'      '+str(anchors[rank]['links'])
+                  )
+        set = anchors[rank]['links']
+        lists = list(set)[0]
+        session = HTMLSession()
+        r = session.get(lists)
+        newss = r.html.find("div.bookname h1")
+        news = r.html.find("div#content")
+        for texts in news:
+            for self.title in newss:
+                print('\n')
+                print('-------------------'+self.title.text+'-------------------------')
+            print(texts.text)
+        return texts.text
+    def __open(self,texts):
+        file_path ="E:/text/"
+        wwwa = file_path  + "{0}.txt".format(self.title.text)
+        if wwwa ==None:
+            print("标题为空")
+        with open(wwwa, 'w') as f:
+            f.write(texts)
+            f.close()
+
+
+
     def go(self):
         htmls = self.fiction()
         anchors=self.analysis(htmls)
         anchors=list(self.__refine(anchors))
-        # for a in anchors:
-        #     print(a)
         anchors = self.__sort(anchors)
-        self.__show(anchors)
-demo = Demo()
-demo.go()
+        anchors=self.__show(anchors)
+        self.__open(anchors)
+        print(str(datetime.datetime.now())+"-----------------------------------------------------------------")
+        time.sleep(3600)
+        timer = threading.Timer(0,Demo.go(self))#定时更新
+        timer.start()
+if __name__ == '__main__':
+    demo = Demo()
+    demo.go()
+
+
