@@ -1,10 +1,11 @@
+# coding=utf-8
 import datetime
 import threading
 
 from requests_html import HTMLSession
 import time
 class Demo:
-    url = "https://www.biduo.cc/biquge/35_35532/"
+    url = "https://www.biduo.cc/biquge/53_53723/"
     url1 = "https://www.97ub.cc/175_175047/"
 
     def fiction(self):
@@ -58,16 +59,29 @@ class Demo:
         newss = r.html.find("div.bookname h1")
         news = r.html.find("div#content")
         for texts in news:
-            for title in newss:
+            for self.title in newss:
                 print('\n')
-                print('-------------------'+title.text+'-------------------------')
+                print('-------------------'+self.title.text+'-------------------------')
             print(texts.text)
+        return texts.text
+    def __open(self,texts):
+        file_path ="E:/text/"
+        wwwa = file_path  + "{0}.txt".format(self.title.text)
+        if wwwa ==None:
+            print("标题为空")
+        with open(wwwa, 'w') as f:
+            f.write(texts)
+            f.close()
+
+
+
     def go(self):
         htmls = self.fiction()
         anchors=self.analysis(htmls)
         anchors=list(self.__refine(anchors))
         anchors = self.__sort(anchors)
-        self.__show(anchors)
+        anchors=self.__show(anchors)
+        self.__open(anchors)
         print(str(datetime.datetime.now())+"-----------------------------------------------------------------")
         time.sleep(3600)
         timer = threading.Timer(0,Demo.go(self))#定时更新
