@@ -15,12 +15,11 @@ class BaseRequest:
         except Exception as e:
             print("post请求错误： %s" %e)
 
-    def send_get(self, **kwargs):
+    def send_get(self,url, **kwargs):
         params = kwargs.get("params")
-        url = kwargs.get("url")
         headers = kwargs.get("headers")
         try:
-            res = requests.get(url=url ,params=params,headers=headers).json()
+            res = requests.get(url ,params=params,headers=headers).json()
             return res
         except Exception as e:
             print("get请求错误： %s" %e)

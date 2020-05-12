@@ -7,6 +7,7 @@ import time
 class Demo:
     url = "https://www.biduo.cc/biquge/53_53723/"
     file_path = handle_ini.get_value('file_path')
+    cur = 0
     def fiction(self):
         ''' 建立Session：'''
         session = HTMLSession()
@@ -44,6 +45,7 @@ class Demo:
             str(rank+1)
         return str(rank+1)
 
+
     def __show(self,anchors):
         '''数据显示'''
         for rank in range(0,len(anchors)):
@@ -68,7 +70,7 @@ class Demo:
         if wwwa ==None:
             print("标题为空")
         with open(wwwa, 'w') as f:
-            f.write(texts)
+            f.write('-------------------------'+self.title.text+'-------------------------'+'\n'+texts)
             f.close()
 
     def go(self):
