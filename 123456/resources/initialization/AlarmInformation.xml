@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alarms>
+    <alarm>
+        <id>7</id>
+        <info>紧急停止</info>
+    </alarm>
+    <alarm>
+        <id>90</id>
+        <info>电机 1 报警</info>
+    </alarm>
+    <alarm>
+        <id>91</id>
+        <info>电机 2 报警</info>
+    </alarm>
+    <alarm>
+        <id>92</id>
+        <info>电机 3 报警</info>
+    </alarm>
+    <alarm>
+        <id>93</id>
+        <info>电机 4 报警</info>
+    </alarm>
+    <alarm>
+        <id>94</id>
+        <info>电机 5 报警</info>
+    </alarm>
+    <alarm>
+        <id>130</id>
+        <info>轴 1 正极限报警</info>
+    </alarm>
+    <alarm>
+        <id>131</id>
+        <info>轴 2 正极限报警</info>
+    </alarm>
+    <alarm>
+        <id>132</id>
+        <info>轴 3 正极限报警</info>
+    </alarm>
+    <alarm>
+        <id>133</id>
+        <info>轴 4 正极限报警</info>
+    </alarm>
+    <alarm>
+        <id>134</id>
+        <info>轴 5 正极限报警</info>
+    </alarm>
+    <alarm>
+        <id>135</id>
+        <info>轴 6 正极限报警</info>
+    </alarm>
+    <alarm>
+        <id>140</id>
+        <info>轴 1 负极限报警</info>
+    </alarm>
+    <alarm>
+        <id>141</id>
+        <info>轴 2 负极限报警</info>
+    </alarm>
+    <alarm>
+        <id>142</id>
+        <info>轴 3 负极限报警</info>
+    </alarm>
+    <alarm>
+        <id>143</id>
+        <info>轴 4 负极限报警</info>
+    </alarm>
+    <alarm>
+        <id>144</id>
+        <info>轴 5 负极限报警</info>
+    </alarm>
+    <alarm>
+        <id>145</id>
+        <info>轴 6 负极限报警</info>
+    </alarm>
+    <alarm>
+        <id>200</id>
+        <info>轨迹运动失败</info>
+    </alarm>
+</alarms>

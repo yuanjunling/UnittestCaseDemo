@@ -1,0 +1,49 @@
+{
+  "properties": [
+    {
+      "name": "robots6.init.alarms",
+      "type": "java.lang.String",
+      "description": "Location of AlarmInformation.xml."
+    },
+    {
+      "name": "robots6.init.coordinates",
+      "type": "java.lang.String",
+      "description": "Location of CoordinatesInformation.xml."
+    },
+    {
+      "name": "robots6.init.texts",
+      "type": "java.lang.String",
+      "description": "Location of TextsInformation.xml."
+    },
+    {
+      "name": "robots6.init.addresses",
+      "type": "java.lang.String",
+      "description": "Location of AddressesInformation.xml."
+    },
+    {
+      "name": "robots6.init.language",
+      "type": "com.yimuzn.robots6.utils.text.LanguageTypes",
+      "description": "Language to show."
+    },
+    {
+      "name": "robots6.init.read-frequency",
+      "type": "java.lang.Integer",
+      "description": "Frequency for query Inputs, Outputs, Alarms and Coordinates, in milliseconds."
+    },
+    {
+      "name": "robots6.init.robot-ip",
+      "type": "java.lang.String",
+      "description": "Robot's ip."
+    },
+    {
+      "name": "robots6.init.robot-port",
+      "type": "java.lang.Integer",
+      "description": "Robot's port."
+    },
+    {
+      "name": "robots6.init.robot-timeout",
+      "type": "java.lang.Integer",
+      "description": "Robot's TCP timeout."
+    }
+  ]
+}

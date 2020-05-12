@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts>
+    <text>
+        <id>0x101</id>
+        <content>
+            <type>en</type>
+            <data>Too many values.</data>
+        </content>
+        <content>
+            <type>zh</type>
+            <data>参数过多。</data>
+        </content>
+    </text>
+    <text>
+        <id>0x102</id>
+        <content>
+            <type>en</type>
+            <data>Lack data.</data>
+        </content>
+        <content>
+            <type>zh</type>
+            <data>Body 中缺少数据。</data>
+        </content>
+    </text>
+    <text>
+        <id>0x103</id>
+        <content>
+            <type>en</type>
+            <data>Failed to connect to robot.</data>
+        </content>
+        <content>
+            <type>zh</type>
+            <data>未能连接到机械臂。</data>
+        </content>
+    </text>
+    <text>
+        <id>0x201</id>
+        <content>
+            <type>en</type>
+            <data>Failed to get status of coordinate from the device for unknown error.</data>
+        </content>
+        <content>
+            <type>zh</type>
+            <data>因未知原因，尝试获取坐标失败。</data>
+        </content>
+    </text>
+    <text>
+        <id>0x202</id>
+        <content>
+            <type>en</type>
+            <data>No such coil.</data>
+        </content>
+        <content>
+            <type>zh</type>
+            <data>无该线圈。</data>
+        </content>
+    </text>
+    <text>
+        <id>0x301</id>
+        <content>
+            <type>en</type>
+            <data>Failed to set coil value.</data>
+        </content>
+        <content>
+            <type>zh</type>
+            <data>设线圈值失败。</data>
+        </content>
+    </text>
+    <text>
+        <id>0x302</id>
+        <content>
+            <type>en</type>
+            <data>Not a number value.</data>
+        </content>
+        <content>
+            <type>zh</type>
+            <data>非数字值。</data>
+        </content>
+    </text>
+    <text>
+        <id>0x303</id>
+        <content>
+            <type>en</type>
+            <data>Failed to set coordinates.</data>
+        </content>
+        <content>
+            <type>zh</type>
+            <data>设坐标值失败。</data>
+        </content>
+    </text>
+    <text>
+        <id>0x304</id>
+        <content>
+            <type>en</type>
+            <data>No such coordinate.</data>
+        </content>
+        <content>
+            <type>zh</type>
+            <data>无此轴。</data>
+        </content>
+    </text>
+    <text>
+        <id>0x401</id>
+        <content>
+            <type>en</type>
+            <data>Robot met alarm.</data>
+        </content>
+        <content>
+            <type>zh</type>
+            <data>机械臂报警。</data>
+        </content>
+    </text>
+    <text>
+        <id>0x501</id>
+        <content>
+            <type>en</type>
+            <data>Reply content is empty.</data>
+        </content>
+        <content>
+            <type>zh</type>
+            <data>回复内容为空。</data>
+        </content>
+    </text>
+    <text>
+        <id>0x502</id>
+        <content>
+            <type>en</type>
+            <data>Robot reply error.</data>
+        </content>
+        <content>
+            <type>zh</type>
+            <data>设置命令失败。</data>
+        </content>
+    </text>
+</texts>
