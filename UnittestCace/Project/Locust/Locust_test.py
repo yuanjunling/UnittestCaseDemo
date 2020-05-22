@@ -8,8 +8,8 @@ class MyBlogs(TaskSet):
             "Content-Type": "application/json"
         }
         json1 = {
-            "userAccount": "231643",
-            "userPassword": "7afa1728db5fd807a45bf948071e1434"
+            "userAccount": "386224",
+            "userPassword": "216fbdbe29310e9cd82e4b433ae128a6"
         }
         req = self.client.post("http://106.75.37.93/user/login",headers=headers,json=json1)
         if req.status_code ==200:
