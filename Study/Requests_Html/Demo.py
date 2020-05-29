@@ -1,13 +1,13 @@
 # coding=utf-8
 import datetime
 import threading
-
+from UnittestCace.public.handle_init import handle_ini
 from requests_html import HTMLSession
 import time
 class Demo:
     url = "https://www.biduo.cc/biquge/53_53723/"
-    url1 = "https://www.97ub.cc/175_175047/"
-
+    file_path = handle_ini.get_value('file_path')
+    cur = 0
     def fiction(self):
         ''' 建立Session：'''
         session = HTMLSession()
@@ -45,6 +45,7 @@ class Demo:
             str(rank+1)
         return str(rank+1)
 
+
     def __show(self,anchors):
         '''数据显示'''
         for rank in range(0,len(anchors)):
@@ -65,15 +66,12 @@ class Demo:
             print(texts.text)
         return texts.text
     def __open(self,texts):
-        file_path ="E:/text/"
-        wwwa = file_path  + "{0}.txt".format(self.title.text)
+        wwwa = Demo.file_path  + "/{0}.txt".format(self.title.text)
         if wwwa ==None:
             print("标题为空")
         with open(wwwa, 'w') as f:
-            f.write(texts)
+            f.write('-------------------------'+self.title.text+'-------------------------'+'\n'+texts)
             f.close()
-
-
 
     def go(self):
         htmls = self.fiction()

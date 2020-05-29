@@ -4,7 +4,7 @@ class Student(Human):
     def __init__(self,school,name,age):
         self.school = school
         print(self.__class__.sum)
-        super(Student,self).__init__(name,age)
+        super().__init__(name,age)
     def do_homework(self):
         super(Student,self).do_homework()
         print('english homework')
@@ -19,6 +19,7 @@ Student.plus_sum()
 
 student1 = Student('人民小学','石敢当',18)
 student1.do_homework()
-# print(student1.name)
-# print(student1.age)
-# print(student1.school)
+student1.get_name()
+print(student1.name)
+print(student1.age)
+print(student1.school)
