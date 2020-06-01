@@ -4,6 +4,7 @@ import threading
 from UnittestCace.public.handle_init import handle_ini
 from requests_html import HTMLSession
 import time
+import HTMLTestRunner_PY3
 class Demo:
     url = "https://www.biduo.cc/biquge/53_53723/"
     file_path = handle_ini.get_value('file_path')
@@ -81,11 +82,12 @@ class Demo:
         anchors=self.__show(anchors)
         self.__open(anchors)
         print(str(datetime.datetime.now())+"-----------------------------------------------------------------")
-        time.sleep(3600)
-        timer = threading.Timer(0,Demo.go(self))#定时更新
-        timer.start()
+        # time.sleep(3600)
+        # timer = threading.Timer(0,Demo.go(self))#定时更新
+        # timer.start()
 if __name__ == '__main__':
     demo = Demo()
     demo.go()
+
 
 
