@@ -5,7 +5,7 @@
     <content url="file://$MODULE_DIR$/.idea" />
     <content url="file://$MODULE_DIR$/Study" />
     <content url="file://$MODULE_DIR$/UnittestCace" />
-    <orderEntry type="jdk" jdkName="Python 3.7 (UnittestCaseDemo) (2)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.7" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">
