@@ -1,3 +1,4 @@
+# coding=utf-8
 from locust import HttpUser, task, between, SequentialTaskSet, tag
 import random
 class MyTaskCase(SequentialTaskSet):
@@ -34,4 +35,6 @@ class MyTaskCase(SequentialTaskSet):
 class UserRun(HttpUser):
     tasks = [MyTaskCase]
     wait_time = between(0.1, 3)
-
+if __name__ == '__main__':
+    import os
+    os.system("locust -f E:/UnittestCaseDemo/UnittestCace/Project/Locust/Locust_Demo.py")
