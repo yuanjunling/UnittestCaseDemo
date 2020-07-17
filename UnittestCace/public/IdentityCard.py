@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding=utf-8
 
 class IdNumber(str):
     def __init__(self, id_number):
