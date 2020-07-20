@@ -24,7 +24,7 @@ class IdNumber(str):
         # 顺序码(2位数)
         for i in range(1):
             sort_no = f"{i:02d}"
-            for j in [x for x in range(10) if x % 2 != 0]:
+            for j in [x for x in range(2) if x % 2 != 0]:
                 sex = j
                 prefix = f"{area_code}{birth_day}{sort_no}{sex}"
                 valid_bit = str(cls(prefix).get_check_digit())
